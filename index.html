@@ -9,30 +9,52 @@
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div lass="row">
+  <h1 id="level-title">Press Any Key to Start</h1>
+  <div class="container" id="game-container">
+    <div id="game-board">
+      <div class="row">
 
-      <div type="button" id="green" class="btn green">
-
+        <button type="button" id="green" class="btn green" aria-label="Green"></button>
+        <button type="button" id="red" class="btn red" aria-label="Red"></button>
       </div>
 
-      <div type="button" id="red" class="btn red">
-
+      <div class="row">
+        <button type="button" id="yellow" class="btn yellow" aria-label="Yellow"></button>
+        <button type="button" id="blue" class="btn blue" aria-label="Blue"></button>
       </div>
     </div>
 
-    <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
+    <section id="quiz-panel" aria-live="polite" hidden>
+      <h2>Programming check</h2>
+      <p id="quiz-question"></p>
+      <form id="quiz-form">
+        <div id="quiz-choices" role="group" aria-label="Answer choices"></div>
+        <button type="submit" id="quiz-submit">Submit answer</button>
+      </form>
+      <p id="quiz-feedback"></p>
+      <div id="quiz-actions" hidden>
+        <button type="button" id="continue-game">Continue to a new game</button>
+        <button type="button" id="exit-game">Exit</button>
       </div>
-      <div type="button" id="blue" class="btn blue">
+    </section>
 
-      </div>
+    <section id="exit-panel" aria-live="polite" hidden>
+      <h2>Game ended</h2>
+      <p>Thanks for playing!</p>
+      <button type="button" id="back-to-game">Back to game</button>
+    </section>
 
-    </div>
+    <section id="return-panel" aria-live="polite" hidden>
+      <h2>Ready to play again?</h2>
+      <button type="button" id="start-new-game">Play</button>
+      <button type="button" id="leave-game">Leave</button>
+    </section>
 
+    <audio id="sound-green" src="sounds/green.mp3" preload="auto"></audio>
+    <audio id="sound-red" src="sounds/red.mp3" preload="auto"></audio>
+    <audio id="sound-yellow" src="sounds/yellow.mp3" preload="auto"></audio>
+    <audio id="sound-blue" src="sounds/blue.mp3" preload="auto"></audio>
+    <audio id="sound-wrong" src="sounds/wrong.mp3" preload="auto"></audio>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
